@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+# Authors ---------------------------------------------------------#
+#  Younes Tasra ~ https://younestasra-r4z3rsw0rd.github.io/        #
+#  Ayman Zerda  ~ https://aymanzerda-sudotime.github.io/           #
+#------------------------------------------------------------------#
+
 # Built-in Python Libraries:
 from time import sleep
 import argparse
