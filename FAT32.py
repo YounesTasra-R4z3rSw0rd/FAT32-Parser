@@ -624,7 +624,7 @@ if __name__ == "__main__":
             image = raw2hex(args.image, 512, Partitions_StartingSector[i]*512)
             
             print_message("Parsing" + Fore.MAGENTA + " Boot Sector" + Fore.WHITE + " of Partition {} :".format(Style.BRIGHT + Fore.CYAN + str(i+1) + Style.NORMAL + Fore.WHITE), 'SUCCESS')
-            print("-------------------------------------------------\n")
+            print("---------------------------------------\n")
             sleep(1)
             print_message("Jump Code Instructions: {}".format(Fore.GREEN + Style.BRIGHT + "0x" + str(jumpCode(image)))+ Style.NORMAL + Fore.WHITE, 'INFO')                               # 0x9058EB  JMP xxxx NOP
             if args.verbose:
@@ -783,7 +783,7 @@ if __name__ == "__main__":
         for key in FSINFO_StartingSector:
            image = raw2hex(args.image, 512, Partitions_StartingSector[key-1]*SECTOR_SIZE + BOOT_SECTOR_SIZE + (FSINFO_StartingSector[key] - 1) * SECTOR_SIZE)
            print_message("Parsing" + Fore.MAGENTA + " FSINFO"  + Fore.WHITE + " of Partition {} :".format(Style.BRIGHT + Fore.CYAN + str(key) + Style.NORMAL + Fore.WHITE), 'SUCCESS')  
-           print("--------------------------------------------\n")
+           print("---------------------------------------\n")
            sleep(1)
            print_message("First FSINFO Signature: {}".format(Fore.GREEN + Style.BRIGHT + "0x" + str(FSINFOSignature_1(image))) + Style.NORMAL + Fore.WHITE, 'INFO')     # 0x41615252 
            
