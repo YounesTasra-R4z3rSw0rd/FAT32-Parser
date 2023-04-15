@@ -1,0 +1,3 @@
+termcolor==1.1.0
+colorama==0.4.6
+prettytable==3.6.0
