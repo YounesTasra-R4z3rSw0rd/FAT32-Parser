@@ -40,3 +40,8 @@ $ python3 --image /path/to/image -p [1-4]
 $ pip3 install -r requirements.txt
 ```
 
+## Contributing
+Contributions are welcome! If you'd like to contribute to this project, please fork the repository and submit a pull request with your changes.
+
+## License
+This project is licensed under the MIT License - see the [License](https://github.com/YounesTasra-R4z3rSw0rd/FAT32-Parser/blob/main/LICENSE) file for details.
