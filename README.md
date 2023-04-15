@@ -27,6 +27,7 @@ $ python3 --image /path/to/image --mbr --verbose
 ```bash
 $ python3 --image /path/to/image
 ```
+![3](https://user-images.githubusercontent.com/101610095/232247263-66e09adc-5b7a-4150-861f-98617219fa2f.gif)
 
 * Using verbose mode:
 ```bash
