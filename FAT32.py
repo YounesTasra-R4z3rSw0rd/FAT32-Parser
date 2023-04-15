@@ -10,7 +10,6 @@ from termcolor import colored
 from colorama import Fore, Style
 from prettytable import PrettyTable
 
-
 SECTOR_SIZE = 512
 MASTER_BOOT_CODE_LENGTH = 446
 PARTITION_TABLES_LENGTH = 16
@@ -19,6 +18,7 @@ BOOT_SECTOR_START = 0
 FSINFO_SECTOR_START = 0
 BOOT_SECTOR_SIZE = 512
 
+# Filesystems:
 FILE_SYSTEMS = {
     "01": "FAT12",
     "04": "FAT16",
@@ -482,6 +482,7 @@ if __name__ == "__main__":
 
         Allowed_Values = ['1', '2', '3', '4'] # Allowed values for the --partition option
         Partitions_StartingSector = []    # Saving Partitons Starting Sector values for later use.
+        FoundFileSystems = []             # Saving found filesystems for later use.
         FSINFO_StartingSector = {}        # Saving FSINFO Starting Sector values for later use.
         partition_counter = 0             # Keeping track of how many partition has been parsed
         check = 0                         # Checking how many partition is bootable
@@ -523,6 +524,7 @@ if __name__ == "__main__":
            if (args.verbose) :
               print_docs("The cylinder number specifies which cylinder the partition begins on.", f"{str(start+3)}-{str(start+3)}", 1)
            print_message("File System: {}".format(Fore.GREEN + Style.BRIGHT + fileSys(image, partition_counter)) + Style.NORMAL + Fore.WHITE, 'INFO')
+           FoundFileSystems.append(fileSys(image, partition_counter))
            if (args.verbose) :
               print_docs("The partition type field identifies the file system type that should be in the partition.", f"{str(start+4)}-{str(start+4)}", 1)
            print_message("End Head: {}".format(Fore.GREEN + Style.BRIGHT + "0x" + endingSector_CHS(image, partition_counter)[0:2])+ Style.NORMAL + Fore.WHITE, 'INFO')
@@ -592,10 +594,16 @@ if __name__ == "__main__":
                 print_message(Style.BRIGHT + Fore.YELLOW + "None of the partitions is bootable." + Fore.WHITE, 'WARNING')
               print(table)
               break 
-         
-        
-        if (args.mbr) :
+      
+        cnt = 0
+        for element in FoundFileSystems:
+           if 'FAT32' in element:
+              cnt += 1
+      
+         # Stop the program if --mbr option is enabled or if the filesystem is not FAT32
+        if (args.mbr or cnt == 0) :
            sys.exit()
+
         print("\n")
 
 # Parsing Boot Sector of each FAT32 partition:
