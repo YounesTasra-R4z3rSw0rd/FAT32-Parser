@@ -21,6 +21,7 @@ $ python3 --image /path/to/image --mbr
 ```bash
 $ python3 --image /path/to/image --mbr --verbose
 ```
+![2](https://user-images.githubusercontent.com/101610095/232246865-af0ef9df-58c1-4ab2-b048-c351e0057ffa.gif)
 
 #### Parsing the entire disk image:
 ```bash
