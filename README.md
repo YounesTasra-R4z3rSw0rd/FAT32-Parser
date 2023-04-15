@@ -15,6 +15,8 @@ This python script is a FAT32 filesystem parser that allows you to analyze and p
 ```bash
 $ python3 --image /path/to/image --mbr 
 ```
+![1](https://user-images.githubusercontent.com/101610095/232246774-44cbe18f-ceaa-4c57-a505-ddddcd545fd8.gif)
+
 * Using verbose Mode:
 ```bash
 $ python3 --image /path/to/image --mbr --verbose
