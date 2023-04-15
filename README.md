@@ -33,6 +33,7 @@ $ python3 --image /path/to/image
 ```bash
 $ python3 --image /path/to/image --verbose
 ```
+![4](https://user-images.githubusercontent.com/101610095/232255736-f78f21ed-f901-49f6-b3e3-1c914d0e364c.gif)
 
 #### Parsing the boot sector of a specific partition
 ```bash
