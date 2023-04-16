@@ -113,9 +113,9 @@ def raw2hex(image_path, data=None, start=None):
 
     return raw_data.hex()
 
-# ----------------------------------------
-# Analysis of the Master Boot Record - MBR
-# ----------------------------------------
+# ----------------------------------------- #
+# Analysis of the Master Boot Record - MBR  #
+# ----------------------------------------- #
 
 # Checking the state of partitions (Bootable/Non-Bootable)
 def bootable(hex_image, partition_counter):
@@ -171,9 +171,9 @@ def MBRSignature(hex_image):
 
    return value
 
-# ----------------------------
-# Analysis of the Boot Sector
-# ----------------------------
+# ----------------------------- #
+# Analysis of the Boot Sector   #
+# ----------------------------- #
 
 def jumpCode(hex_image) :
    # Size: 3 Bytes
@@ -293,9 +293,9 @@ def totalNumberOfSectors(hex_image) :  # Number of Sectors in the entire disk
 
    return int(value, 16)      # Apply some checks on this value
 
-# ---------------------------------------------------------------
-# Analysis of what's after the first 36 bytes of the boot sector:
-# ---------------------------------------------------------------
+# --------------------------------------------------------------- #
+# Analysis of what's after the first 36 bytes of the boot sector  #
+# --------------------------------------------------------------- #
 def numOfSectorsPerFAT(hex_image):
    # Size: 4 bytes
    start = 36*2         # JumpCode + OEM + BytesPerSector + SectorsPerCluster + reservedArea + numberOfFATs + NumberOfRootDirectoryEntries + NumberOfSectors + MediaType + FatSize + NumberOfSectorsPerTrack + NumberOfHeads + NumberOfHiddenSectors + NumberOfSectorsInPartition
@@ -413,9 +413,9 @@ def BootRecordSignature_1(hex_image):
    value = big_endian[::-1].hex()
    return value  # Apply some checks on this value.(Always == 55 AA)
 
-# ---------------------------------------------------
-# Analysis of File System Information Sector (FSINFO)
-# ---------------------------------------------------
+# --------------------------------------------------- #
+# Analysis of File System Information Sector (FSINFO) #
+# --------------------------------------------------- #
 
 def FSINFOSignature_1(hex_image):
    # Size: 4 bytes 
