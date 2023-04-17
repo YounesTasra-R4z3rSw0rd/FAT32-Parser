@@ -500,7 +500,7 @@ if __name__ == "__main__":
         print("--------------------------------------------\n")
         sleep(1)
 
-# Partition the Master Boot Record:
+# Parsing the Master Boot Record:
 
         print_message("Bootstrap Code located in the first 446 bytes of the first 512-byte sector (MBR)", 'INFO')
         print("")
